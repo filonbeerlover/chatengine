@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+	Тема (удаление)
+{% endblock %}
+
+{% block left_menu %}
+	<li><a href="{% url 'themes:create_theme' %}">Создать</a></li>
+{% endblock %}
+
+{% block content %}
+<h1>Тема "{{ object.title }}" (удаление)</h1>
+<form action="" method="post">
+	{% csrf_token %}
+    <p>Вы уверены, что хотите удалить конференцию "{{ object }}"?</p>
+    <input type="submit" value="Удалить" />
+</form>  
+{% endblock %}
