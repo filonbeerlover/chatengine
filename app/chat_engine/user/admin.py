@@ -9,7 +9,8 @@ from user.models import Profile
 class ProfileInline(admin.StackedInline):
     model = Profile
     can_delete = False
-    verbose_name_plural = 'Профиль'
+    verbose_name_plural = 'Профили'
+    verbose_name = 'Профиль'
 
 # Define a new User admin
 class UserAdmin(BaseUserAdmin):
