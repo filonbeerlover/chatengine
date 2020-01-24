@@ -4,23 +4,21 @@ from django.views.generic import ListView
 from django.views import View
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from . forms import ThemeForm
 from user.models import Profile
 from . models import Theme
-
 
 
 class ThemesList(ListView):	
 	template_name = 'themes/themes.html'
 	model = Theme
 
-
-class ThemeCreate(CreateView):
+class ThemeCreate(UserPassesTestMixin,CreateView):
 	template_name = 'themes/create.html'
 	form_class = ThemeForm
 	success_url = reverse_lazy('themes:themes_list') 
+	raise_exception = True
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)		
@@ -32,30 +30,24 @@ class ThemeCreate(CreateView):
 		context['author']=teacher_users
 		return context
 
-class ThemeDelete(DeleteView):
+	def test_func(self):
+		return not self.request.user.is_anonymous() and self.request.user.profile.is_teacher
+
+class ThemeDelete(UserPassesTestMixin,DeleteView):
 	template_name = 'themes/delete.html'
 	model = Theme
 	success_url = reverse_lazy('themes:themes_list')
+	raise_exception = True
 
-class ThemeUpdate(UpdateView):
+	def test_func(self):
+		return not self.request.user.is_anonymous() and self.request.user.profile.is_teacher
+
+class ThemeUpdate(UserPassesTestMixin,UpdateView):
 	template_name = 'themes/create.html'
 	model = Theme
 	fields = ['title','description']
 	success_url = reverse_lazy('themes:themes_list')
-	
-	# def get_context_data(self, **kwargs):
-	# 	context = super().get_context_data(**kwargs)
-	# 	theme = get_object_or_404(Theme,pk = context['id'])
-	# 	context['object'] = theme
-	# 	return context
+	raise_exception = True
 
-# class ThemeDelete(View):
-# 	template_name = 'themes/delete.html'
-# 	def get(self,request,id):
-# 		theme = Theme.objects.get(pk__iexact=id)
-# 		return render(request,'themes/delete.html',context={'theme':theme})
-
-# 	def post(self,request,id):
-# 		theme = Theme.objects.get(pk__iexact=id)
-# 		theme.delete()
-# 		return redirect(reverse_lazy('themes:themes_list'))
+	def test_func(self):
+		return not self.request.user.is_anonymous() and self.request.user.profile.is_teacher

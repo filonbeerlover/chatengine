@@ -25,7 +25,9 @@ SECRET_KEY = 'g5-nmo75ppwj(4ayy3js)ctr7#_&1$o0h0ak9+fixvxotj*-^j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','filonbeerlover.pythonanywhere.com']
+SITE_ID=3
+
+ALLOWED_HOSTS = ['127.0.0.1','localhost','filonbeerlover.pythonanywhere.com','*']
 
 # Application definition
 
@@ -36,6 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # ... include the providers you want to enable:
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.hubic',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.mailru',
+    'allauth.socialaccount.providers.odnoklassniki',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.vk',
+    
     'user',
     'themes',
     # 'controller'
@@ -68,6 +85,15 @@ TEMPLATES = [
         },
     },
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 WSGI_APPLICATION = 'chat_engine.wsgi.application'
 
@@ -120,3 +146,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# For django-allauth authorization throw social networks
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    # 'google': {
+    #     For each OAuth based provider, either add a ``SocialApp``
+    #     (``socialaccount`` app) containing the required client
+    #     credentials, or list them here:
+    #     'APP': {
+    #         'client_id': '123',
+    #         'secret': '456',
+    #         'key': ''
+    #     }
+    # }
+}
