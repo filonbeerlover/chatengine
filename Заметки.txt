@@ -1,0 +1,7 @@
+
+pythonanywhere Django admin css
+ /static/admin/   /home/<username>/.virtualenvs/<virtrualenvname>/lib/python3.6/site-packages/django/contrib/admin/static/admin
+  /static/admin/  /home/filonbeerlover/.virtualenvs/http:/filonbeerlover.pythonanywhere.com/lib/python3.6/site-packages/django/contrib/admin/static/admin
+
+Django уроки. Как настроить рассылку писем для подтверждения регистрации с почты yandex
+http://www.autister.com/post/58-django-uroki-kak-nastroit-rassylku-pisem-dlia-podtverzhdeniia-registratsii-s-pochty-yandex/
