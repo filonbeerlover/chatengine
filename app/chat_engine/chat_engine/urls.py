@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('themes/', include('themes.urls'),name='themes'),
+    path('update_server/',include('update_server.urls')),
     path('',include('themes.urls'))
 ]

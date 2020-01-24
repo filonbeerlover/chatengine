@@ -1,3 +1,31 @@
+1. Деплоим проект на pythonanywhere
+https://tutorial.djangogirls.org/ru/deploy/
+
+pa_autoconfigure_django.py https://github.com/filonbeerlover/chatengine
+
+Настройка деплоя автоматически:
+https://habr.com/ru/post/457348/
+
+2. Установка requirements.txt 
+pip install -r requirements.txt
+
+3. Делаем python manage.py migrate
+
+4. Создаем суперюзера python manage.py createsuperuser
+
+5. Возвращаем css на сайт в админку
+ /static/admin/   /home/<username>/.virtualenvs/<virtrualenvname>/lib/python3.6/site-packages/django/contrib/admin/static/admin
+ /static/admin/  /home/filonbeerlover/.virtualenvs/http:/filonbeerlover.pythonanywhere.com/lib/python3.6/site-packages/django/contrib/admin/static/admin
+
+6. Настраиваем в админке сайта соцсети
+http://www.autister.com/post/46-podkliuchaem-avtorizatsiiu-i-registratsiiu-cherez-sotsialnye-seti-django-allauth/
+
+
+
+
+
+
+
 
 pythonanywhere Django admin css
  /static/admin/   /home/<username>/.virtualenvs/<virtrualenvname>/lib/python3.6/site-packages/django/contrib/admin/static/admin
@@ -5,3 +33,6 @@ pythonanywhere Django admin css
 
 Django уроки. Как настроить рассылку писем для подтверждения регистрации с почты yandex
 http://www.autister.com/post/58-django-uroki-kak-nastroit-rassylku-pisem-dlia-podtverzhdeniia-registratsii-s-pochty-yandex/
+
+Подтверждение регистрации через почту
+http://www.autister.com/post/47-django-allauth-poteriannaia-dokumentatsiia/

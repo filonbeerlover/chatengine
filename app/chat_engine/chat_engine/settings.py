@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     
     'user',
     'themes',
+    'update_server',
     # 'controller'
 ]
 
@@ -161,21 +162,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 15
-
-# For django-allauth authorization throw social networks
-# Provider specific settings
-SOCIALACCOUNT_PROVIDERS = {
-    # 'google': {
-    #     For each OAuth based provider, either add a ``SocialApp``
-    #     (``socialaccount`` app) containing the required client
-    #     credentials, or list them here:
-    #     'APP': {
-    #         'client_id': '123',
-    #         'secret': '456',
-    #         'key': ''
-    #     }
-    # }
-}
 
 try:
     from mysite.local_settings import *
