@@ -8,7 +8,7 @@ class Theme(models.Model):
 	author = models.ForeignKey(User,verbose_name="Автор",on_delete=models.PROTECT,limit_choices_to={'profile__is_teacher':True})
 	pub_date = models.DateTimeField(auto_now_add=True,verbose_name="Дата публикации")
 
-	Profile.objects.filter(is_teacher=True)
+	# Profile.objects.filter(is_teacher=True)
 
 	def __str__(self):
 		return self.title

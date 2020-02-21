@@ -25,7 +25,7 @@ SECRET_KEY = 'g5-nmo75ppwj(4ayy3js)ctr7#_&1$o0h0ak9+fixvxotj*-^j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-SITE_ID=3
+SITE_ID=7
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','filonbeerlover.pythonanywhere.com','*']
 
@@ -43,14 +43,14 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # ... include the providers you want to enable:
-    # 'allauth.socialaccount.providers.facebook',
+    # ... include the providers you want to enable:    
     # 'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.hubic',
     # 'allauth.socialaccount.providers.instagram',
-    # 'allauth.socialaccount.providers.mailru',
-    # 'allauth.socialaccount.providers.odnoklassniki',
+    # 'allauth.socialaccount.providers.mailru',    
     # 'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.odnoklassniki',
     'allauth.socialaccount.providers.vk',
     
     'user',
@@ -164,6 +164,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 15
 
 try:
-    from mysite.local_settings import *
+    from . local_settings import *
 except:
     pass

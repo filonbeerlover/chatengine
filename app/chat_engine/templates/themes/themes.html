@@ -4,13 +4,17 @@
 {% endblock %}
 
 {% block left_menu %}
+	{% if request.user.is_authenticated %}
+	{% if request.user.profile.is_teacher %}
 	<li><a href="{% url 'themes:create_theme' %}">Создать</a></li>
+	{% endif %}
+	{% endif %}
 {% endblock %}
 
 {% block content %}
   <div class="list-group">
   	{% for theme in object_list %}
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-3">
 			<div class="d-flex w-100 justify-content-between">
 				<h5 class="mb-1">{{ theme.title }}</h5>
 				<small>{{ theme.pub_date }}</small>

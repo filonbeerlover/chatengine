@@ -20,18 +20,8 @@ class ThemeCreate(UserPassesTestMixin,CreateView):
 	success_url = reverse_lazy('themes:themes_list') 
 	raise_exception = True
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)		
-		teacher_profiles = Profile.objects.filter(is_teacher=True).values('user')
-		teachers_list = list()
-		for teacher_profile in teacher_profiles:
-			teachers_list.append(teacher_profile.get('user'))
-		teacher_users = User.objects.filter(pk__in=teachers_list)
-		context['author']=teacher_users
-		return context
-
 	def test_func(self):
-		return not self.request.user.is_anonymous() and self.request.user.profile.is_teacher
+		return not self.request.user.is_anonymous and self.request.user.profile.is_teacher
 
 class ThemeDelete(UserPassesTestMixin,DeleteView):
 	template_name = 'themes/delete.html'
@@ -40,7 +30,7 @@ class ThemeDelete(UserPassesTestMixin,DeleteView):
 	raise_exception = True
 
 	def test_func(self):
-		return not self.request.user.is_anonymous() and self.request.user.profile.is_teacher
+		return not self.request.user.is_anonymous and self.request.user.profile.is_teacher
 
 class ThemeUpdate(UserPassesTestMixin,UpdateView):
 	template_name = 'themes/create.html'
@@ -50,4 +40,4 @@ class ThemeUpdate(UserPassesTestMixin,UpdateView):
 	raise_exception = True
 
 	def test_func(self):
-		return not self.request.user.is_anonymous() and self.request.user.profile.is_teacher
+		return not self.request.user.is_anonymous and self.request.user.profile.is_teacher

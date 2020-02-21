@@ -20,12 +20,21 @@ pip install -r requirements.txt
 6. Настраиваем в админке сайта соцсети
 http://www.autister.com/post/46-podkliuchaem-avtorizatsiiu-i-registratsiiu-cherez-sotsialnye-seti-django-allauth/
 
+vk: http://www.autister.com/post/48-django-allauth-podkliuchaem-vkontakte-vk-providers/
+ok.ru: http://www.autister.com/post/52-django-allauth-podkliuchaem-odnoklassniki-odnoklassniki-provider/
+instagramm: http://www.autister.com/post/51-django-allauth-podkliuchaem-instagram-instagram-provider/
+twitter: http://www.autister.com/post/50-django-allauth-podkliuchaem-twitter-twitter-provider/
+facebook: http://www.autister.com/post/49-django-allauth-podkliuchaem-facebook-facebook-provider/
 
 
 
+CKEDITOR для flatpages:
+https://habr.com/ru/post/340686/
+https://www.youtube.com/watch?v=4DIcO1XZefg
 
 
-
+Настройка деплоя автоматически:
+https://habr.com/ru/post/457348/
 
 pythonanywhere Django admin css
  /static/admin/   /home/<username>/.virtualenvs/<virtrualenvname>/lib/python3.6/site-packages/django/contrib/admin/static/admin
