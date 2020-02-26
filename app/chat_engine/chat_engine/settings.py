@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.odnoklassniki',
     'allauth.socialaccount.providers.vk',
+    'github_hook',
     
     'user',
     'themes',

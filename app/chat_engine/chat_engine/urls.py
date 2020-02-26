@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('themes/', include('themes.urls')),
-    path('git/',include('git_hooks.urls')),
+    #path('hook/',include('github_hooks.urls')),
     path('',include('themes.urls'))
 ]
