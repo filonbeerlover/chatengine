@@ -20,6 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('themes/', include('themes.urls')),
-    path('hook/',include('github_hook.urls')),
-    path('',include('themes.urls'))
+    path('hook/',include('github_hook.urls')),    
 ]
