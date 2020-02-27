@@ -26,6 +26,12 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), )
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -64,6 +70,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.vk',
     'github_hook',
     'ckeditor',
+    'ckeditor_uploader',
     
     'user',
     'themes',
@@ -169,6 +176,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 15
+
+CKEDITOR_CONFIGS = {
+
+    'default': {
+
+     'toolbar': 'None'
+
+    },
+
+}
 
 try:
     from . local_settings import *

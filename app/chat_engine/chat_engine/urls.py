@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('themes/', include('themes.urls')),
-    path('hook/',include('github_hook.urls')),    
+    path('hook/',include('github_hook.urls')),  
+    path('ckeditor/',include('ckeditor_uploader.urls')),  
 ]
